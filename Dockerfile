@@ -16,4 +16,4 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . .
 
-CMD ["gunicorn", "google_auth.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "--timeout", "120", "google_auth.wsgi:application", "-b", "0.0.0.0:8000"]

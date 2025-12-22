@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from django.http import JsonResponse
 
 
 def api_root(request):
@@ -24,3 +25,8 @@ class MeView(APIView):
             "email": request.user.email,
             "username": request.user.username,
         })
+    
+from django.http import JsonResponse
+
+def health(request):
+    return JsonResponse({"status": "ok"})

@@ -35,10 +35,12 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     ".fly.dev",
+    "google-auth-31e7.onrender.com"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.fly.dev",
+    "https://google-auth-31e7.onrender.com"
 ]
 
 
