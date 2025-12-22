@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for google-auth-r5hmka on 2025-12-22T13:07:03Z
+# fly.toml app configuration file generated for google-auth-markmang on 2025-12-22T13:49:34Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'google-auth-r5hmka'
+app = 'google-auth-markmang'
 primary_region = 'jnb'
 console_command = '/code/manage.py shell'
 
