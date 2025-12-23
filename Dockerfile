@@ -11,9 +11,18 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
+# Copy requirements first
 COPY requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# Install dependencies
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+# Ensure gunicorn exists even if requirements fails
+RUN pip install gunicorn
 
 COPY . .
 
-CMD [gunicorn --timeout 120 google_auth.wsgi:application --bind 0.0.0.0:$PORT]
+COPY google_auth/settings.py /app/google_auth/settings.py
+
+CMD ["gunicorn", "google_auth.wsgi:application", "--bind", "0.0.0.0:${PORT}", "--timeout", "120"]
