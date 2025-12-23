@@ -25,4 +25,4 @@ COPY . .
 
 COPY google_auth/settings.py /app/google_auth/settings.py
 
-CMD ["gunicorn", "google_auth.wsgi:application", "--bind", "0.0.0.0:${PORT}", "--timeout", "120"]
+CMD sh -c "gunicorn google_auth.wsgi:application --bind 0.0.0.0:${PORT:-8000} --timeout 120"
